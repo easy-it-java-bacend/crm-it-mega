@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>New Course Type</title>
+</head>
+<body>
+    <form action="#" th:action="@{'/course-type/check-data'}" method="post">
+        <label for="typename">Type name</label>
+        <input id="typename" type="text" name="typeName">
+        <p/>
+        <label for="durationInMonth">Duration in month</label>
+        <input id="durationInMonth" type="number" name="durationInMonth" value="name">
+        <p/>
+        <label for="classesPerMonth">Classes per month</label>
+        <input id="classesPerMonth" type="number" name="classesPerMonth">
+        <p/>
+        <label for="durationOfOneLesson">Duration of one lesson</label>
+        <input id="durationOfOneLesson" type="time" name="durationOfOneLesson">
+        <input type="submit">
+    </form>
+</body>
+</html>
