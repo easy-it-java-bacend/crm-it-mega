@@ -10,7 +10,7 @@ import java.time.LocalTime;
 @Data
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class AddCourseTypeRequest {
+public class CreateCourseTypeRequest {
     String typeName;
     Integer classesPerMonth;
     Double durationInMonth;

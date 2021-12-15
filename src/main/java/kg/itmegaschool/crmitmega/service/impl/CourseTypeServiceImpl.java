@@ -5,7 +5,7 @@ import kg.itmegaschool.crmitmega.mapper.CourseTypeMapper;
 import kg.itmegaschool.crmitmega.model.MessageResponse;
 import kg.itmegaschool.crmitmega.model.dto.CourseTypeDto;
 import kg.itmegaschool.crmitmega.model.entity.CourseType;
-import kg.itmegaschool.crmitmega.model.request.AddCourseTypeRequest;
+import kg.itmegaschool.crmitmega.model.request.CreateCourseTypeRequest;
 import kg.itmegaschool.crmitmega.repository.CourseTypeRepository;
 import kg.itmegaschool.crmitmega.service.CourseTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class CourseTypeServiceImpl implements CourseTypeService {
     private CourseTypeRepository courseTypeRepository;
 
     @Override
-    public CourseTypeDto create(AddCourseTypeRequest request) {
+    public CourseTypeDto create(CreateCourseTypeRequest request) {
         if (courseTypeRepository.existsByTypeName(request.getTypeName())) {
             CourseType courseType = courseTypeRepository
                     .findByTypeName(request.getTypeName())

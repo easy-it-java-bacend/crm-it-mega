@@ -1,16 +1,16 @@
 package kg.itmegaschool.crmitmega.model.dto;
 
 import kg.itmegaschool.crmitmega.model.entity.Group;
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Data
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class StudentDto {
     Long id;
@@ -19,5 +19,5 @@ public class StudentDto {
     String email;
     String phoneNumber;
     LocalDate dob;
-    List<Group> group;
+    List<GroupDto> group;
 }

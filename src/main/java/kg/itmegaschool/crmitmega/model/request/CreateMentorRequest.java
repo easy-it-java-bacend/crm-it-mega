@@ -8,7 +8,7 @@ import lombok.experimental.FieldDefaults;
 @Data
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class AddMentorRequest {
+public class CreateMentorRequest {
     String firstName;
     String lastName;
     String email;

@@ -1,6 +1,5 @@
 package kg.itmegaschool.crmitmega.controller;
 
-import io.swagger.annotations.ApiOperation;
 import kg.itmegaschool.crmitmega.exceptions.CourseNotFoundException;
 import kg.itmegaschool.crmitmega.exceptions.CourseTypeNotFoundException;
 import kg.itmegaschool.crmitmega.model.MessageResponse;

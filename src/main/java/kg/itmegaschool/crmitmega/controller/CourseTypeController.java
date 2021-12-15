@@ -1,7 +1,7 @@
 package kg.itmegaschool.crmitmega.controller;
 
 import kg.itmegaschool.crmitmega.model.MessageResponse;
-import kg.itmegaschool.crmitmega.model.request.AddCourseTypeRequest;
+import kg.itmegaschool.crmitmega.model.request.CreateCourseTypeRequest;
 import kg.itmegaschool.crmitmega.service.CourseTypeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +18,7 @@ public class CourseTypeController {
     private final CourseTypeService courseTypeService;
 
     @PostMapping("/create")
-    public ResponseEntity<?> createCourseType(@RequestBody AddCourseTypeRequest request) {
+    public ResponseEntity<?> createCourseType(@RequestBody CreateCourseTypeRequest request) {
         try {
             return ResponseEntity.status(HttpStatus.CREATED).body(courseTypeService.create(request));
         } catch (RuntimeException ex) {
