@@ -35,11 +35,11 @@ public class CourseController {
         }*/
     }
 
-    @GetMapping("/read/{id}")
-    public ResponseEntity<?> readCourse(@PathVariable Long id) {
+    @GetMapping("/find/{id}")
+    public ResponseEntity<?> findCourse(@PathVariable Long id) {
         try {
             log.info("Reading course with id=" + id);
-            return ResponseEntity.ok(courseService.read(id));
+            return ResponseEntity.ok(courseService.find(id));
         } catch (CourseNotFoundException ex) {
             log.error("Reading failed. " + ex.getMessage());
             ex.printStackTrace();
@@ -47,16 +47,14 @@ public class CourseController {
         }
     }
 
-    // read-all
-
-    @GetMapping("/read-all-course-names")
-    public ResponseEntity<?> readAllCourseNames() {
-        return ResponseEntity.ok(courseService.readAllCourseNames());
+    @GetMapping("/find-all-course-names")
+    public ResponseEntity<?> findAllCourseNames() {
+        return ResponseEntity.ok(courseService.findAllCourseNames());
     }
 
-    @GetMapping("/read-all-by-cost")
-    public ResponseEntity<?> readAllByCost(@RequestBody GetCourseByCostRequest request) {
-        return ResponseEntity.ok(courseService.readCoursesByMonthlyCostBetween(request));
+    @GetMapping("/find-all-by-cost")
+    public ResponseEntity<?> findAllByCost(@RequestBody GetCourseByCostRequest request) {
+        return ResponseEntity.ok(courseService.findCoursesByMonthlyCostBetween(request));
     }
 
     @PutMapping("/update")

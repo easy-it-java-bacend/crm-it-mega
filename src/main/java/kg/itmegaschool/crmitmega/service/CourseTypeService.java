@@ -12,9 +12,9 @@ public interface CourseTypeService {
 
     CourseTypeDto create(CreateCourseTypeRequest request);
 
-    CourseTypeDto read(Long id);
+    CourseTypeDto find(Long id);
 
-    List<CourseTypeDto> readAll();
+    List<CourseTypeDto> findAll();
 
     MessageResponse delete(Long id);
 }

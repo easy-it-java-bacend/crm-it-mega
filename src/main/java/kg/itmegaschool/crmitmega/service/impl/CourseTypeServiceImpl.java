@@ -61,7 +61,7 @@ public class CourseTypeServiceImpl implements CourseTypeService {
     }
 
     @Override
-    public CourseTypeDto read(Long id) {
+    public CourseTypeDto find(Long id) {
         CourseType courseType = courseTypeRepository
                 .findByIdAndIsDeletedFalse(id)
                 .orElseThrow(() -> new CourseTypeNotFoundException("For id=" + id));
@@ -70,7 +70,7 @@ public class CourseTypeServiceImpl implements CourseTypeService {
     }
 
     @Override
-    public List<CourseTypeDto> readAll() {
+    public List<CourseTypeDto> findAll() {
         List<CourseType> courseTypeList = courseTypeRepository.findAll();
         if (courseTypeList.isEmpty()) {
             throw new RuntimeException("Table for Course type is empty");

@@ -13,13 +13,13 @@ public interface CourseService {
 
     CourseDto create(CourseCreateRequest request);
 
-    CourseDto read(Long id);
+    CourseDto find(Long id);
 
     CourseDto update(CourseDto courseDto);
 
     void delete(Long id);
 
-    List<String> readAllCourseNames();
+    List<String> findAllCourseNames();
 
-    List<CourseDto> readCoursesByMonthlyCostBetween(GetCourseByCostRequest request);
+    List<CourseDto> findCoursesByMonthlyCostBetween(GetCourseByCostRequest request);
 }

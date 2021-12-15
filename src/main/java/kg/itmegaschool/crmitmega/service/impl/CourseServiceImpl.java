@@ -14,7 +14,6 @@ import kg.itmegaschool.crmitmega.service.CourseTypeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -26,7 +25,7 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public CourseDto create(CourseCreateRequest request) {
-        CourseTypeDto courseTypeDto = courseTypeService.read(request.getCourseTypeId());
+        CourseTypeDto courseTypeDto = courseTypeService.find(request.getCourseTypeId());
 
         Course course = Course
                 .builder()
@@ -47,7 +46,7 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public CourseDto read(Long id) {
+    public CourseDto find(Long id) {
         return CourseMapper.INSTANCE
                 .toDto(courseRepository.findByIdAndIsDeletedFalse(id)
                         .orElseThrow(() -> new CourseNotFoundException("Course with id=" + id + " not found.")));
@@ -64,12 +63,12 @@ public class CourseServiceImpl implements CourseService {
         }).orElseThrow(() -> new CourseNotFoundException("Course with id=" + courseDto.getId() + " not found."));
     }
 
-    public List<String> readAllCourseNames() {
+    public List<String> findAllCourseNames() {
         return courseRepository.findAllCourseNames();
     }
 
     @Override
-    public List<CourseDto> readCoursesByMonthlyCostBetween(GetCourseByCostRequest request) {
+    public List<CourseDto> findCoursesByMonthlyCostBetween(GetCourseByCostRequest request) {
         List<CourseDto> courseDtos = CourseMapper.INSTANCE.
                 toDtoList(courseRepository.findByMonthlyCostBetween(request.getFrom(), request.getTo()));
 

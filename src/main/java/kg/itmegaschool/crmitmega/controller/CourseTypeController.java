@@ -26,19 +26,19 @@ public class CourseTypeController {
         }
     }
 
-    @GetMapping("/read/{id}")
-    public ResponseEntity<?> readCourseType(@PathVariable Long id) {
+    @GetMapping("/find/{id}")
+    public ResponseEntity<?> findCourseType(@PathVariable Long id) {
         try {
-            return ResponseEntity.ok(courseTypeService.read(id));
+            return ResponseEntity.ok(courseTypeService.find(id));
         } catch (RuntimeException ex) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body(ex.getMessage());
         }
     }
 
-    @GetMapping("/read-all")
-    public ResponseEntity<?> readAllCourseTypes() {
+    @GetMapping("/find-all")
+    public ResponseEntity<?> findAllCourseTypes() {
         try {
-            return ResponseEntity.ok(courseTypeService.readAll());
+            return ResponseEntity.ok(courseTypeService.findAll());
         } catch (RuntimeException ex) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body(ex.getMessage());
         }
